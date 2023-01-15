@@ -1,0 +1,40 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model List<Book>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Title</th>
+                <th scope="col">Author</th>
+                <th scope="col">ISBN</th>
+                <th scope="col">Date Added</th>
+                <th scope="col">Publication Date</th>
+                <th scope="col">Available Copies</th>
+                <th scope="col">Genre</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                int i = 1;
+                foreach(Book b in Model){
+                    
+                            <tr>
+                            <th scope="row">@i</th>
+
+                    <td> <a href="/Book/Index/@b.Id/@ViewData["studentId"]">@(b.Title)</a></td>
+                            <td>@(b.author.firstName + b.author.lastName)</td>
+                            <td>@(b.ISBN)</td>
+                            <td>@(b.publicationDate)</td>
+                            <td>@(b.addedDate)</td>
+                            <td>@(b.availableCopies)</td>
+                            <td>@(b.genre.Name)</td>
+                            i++;
+                        </tr>
+                
+            }
+                }
+            </tbody>
+    </table>
+
